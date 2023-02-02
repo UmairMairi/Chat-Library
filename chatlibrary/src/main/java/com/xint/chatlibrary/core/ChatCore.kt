@@ -1,5 +1,10 @@
 package com.xint.chatlibrary.core
 
+import android.content.Context
+import com.xint.chatlibrary.services.SocketTasks
+import com.xint.chatlibrary.utils.ChatConstants
+import org.json.JSONObject
+
 class ChatCore {
 
     lateinit var socketUrl:String
@@ -17,8 +22,15 @@ class ChatCore {
             }
     }
 
-    fun initialization(socketUrl:String,baseUrl:String){
+    fun initialization(context: Context, socketUrl:String, baseUrl:String){
         this.socketUrl = socketUrl
         this.baseUrl = baseUrl
+        SocketTasks.initializeSocket(context = context)
+    }
+
+    fun subscribeUser(userId:String){
+        val jsonObject  = JSONObject()
+        jsonObject.put(ChatConstants.SubscribeUser.userId,userId)
+        SocketTasks.subscribeUser(request = jsonObject)
     }
 }

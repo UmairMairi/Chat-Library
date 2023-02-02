@@ -9,13 +9,21 @@ import com.xint.chatlibrary.utils.LibraryLogs
 import io.socket.client.IO
 import io.socket.client.Socket
 import okhttp3.OkHttpClient
+import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 object SocketTasks {
     private const val TAG = "SocketTask-->"
+    private const val RequestTAG = "SocketTask Request-->"
     private var retry = true
     private lateinit var mSocket: Socket
     private var options = IO.Options()
+
+//    Socket Events
+
+    private const val EVENT_SUBSCRIBE = "subscribe-user"
+    private const val USER_GENERAL = "user-general"
+
 
     init {
         val clientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
@@ -61,6 +69,12 @@ object SocketTasks {
 
         }
 
+        mSocket.on(USER_GENERAL) { args ->
+            args.forEach {
+                LibraryLogs.debug("$TAG $EVENT_SUBSCRIBE", it.toString())
+            }
+        }
+
     }
 
     fun disconnect() {
@@ -72,5 +86,8 @@ object SocketTasks {
         return mSocket.connected()
     }
 
-
+    fun subscribeUser(request:JSONObject) {
+        LibraryLogs.debug(RequestTAG, "$request")
+        mSocket.emit(EVENT_SUBSCRIBE, request)
+    }
 }
