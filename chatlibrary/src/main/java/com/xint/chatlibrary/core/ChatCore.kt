@@ -9,6 +9,7 @@ class ChatCore {
 
     lateinit var socketUrl:String
     lateinit var baseUrl:String
+    lateinit var token:String
     companion object {
         private var mInstance: ChatCore? = null
 
@@ -22,9 +23,10 @@ class ChatCore {
             }
     }
 
-    fun initialization(context: Context, socketUrl:String, baseUrl:String){
+    fun initialization(context: Context, socketUrl:String, baseUrl:String, sessionId:String){
         this.socketUrl = socketUrl
         this.baseUrl = baseUrl
+        this.token = sessionId
         SocketTasks.initializeSocket(context = context)
     }
 

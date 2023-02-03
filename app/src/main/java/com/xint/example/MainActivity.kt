@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         ChatCore.instance?.initialization(
             context = this@MainActivity,
             socketUrl = "http://150.230.54.239:8100",
-            baseUrl = "http://150.230.54.239:3000"
+            baseUrl = "http://150.230.54.239:3000",
+            sessionId =  "48762736523652396978436987468794365"
         )
 
         LogUtils.debug("BaseUrl", ChatCore.instance?.baseUrl)
