@@ -2,9 +2,9 @@ package com.xint.chatlibrary.services
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import com.rider.ride.network.models.chat.*
 import com.xint.chatlibrary.core.ChatCore
 import com.xint.chatlibrary.listeners.ChatListener
+import com.xint.chatlibrary.models.*
 import com.xint.chatlibrary.utils.LibraryLogs
 import com.xint.chatlibrary.utils.Utils
 import io.socket.client.IO

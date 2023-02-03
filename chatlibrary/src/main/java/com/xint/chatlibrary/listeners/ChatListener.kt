@@ -1,6 +1,6 @@
 package com.xint.chatlibrary.listeners
 
-import com.rider.ride.network.models.chat.*
+import com.xint.chatlibrary.models.*
 
 interface ChatListener {
 //    fun onGetSendMessage(modal: MessageReceiveModal)

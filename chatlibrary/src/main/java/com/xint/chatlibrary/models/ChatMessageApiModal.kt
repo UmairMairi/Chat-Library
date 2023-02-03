@@ -1,7 +1,7 @@
 package com.rider.ride.network.models
 
 import android.os.Parcelable
-import com.rider.ride.network.models.chat.MessageSendDataModal
+import com.xint.chatlibrary.models.MessageSendDataModal
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
