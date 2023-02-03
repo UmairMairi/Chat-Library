@@ -2,12 +2,20 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
-
+    id 'maven-publish'
 }
 
 android {
     namespace 'com.xint.chatlibrary'
     compileSdk 32
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
 
     defaultConfig {
         minSdk 23
@@ -29,6 +37,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.UmairMairi'
+            artifactId = 'Chat-Library'
+            version = '0.0.2'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
     }
 }
 

@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         ChatCore.instance?.initialization(
             context = this@MainActivity,
             socketUrl = "http://150.230.54.239:8100",
