@@ -1,4 +1,5 @@
 package com.xint.chatlibrary.services
+
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
@@ -93,10 +94,6 @@ object SocketTasks {
             args.forEach {
                 LibraryLogs.debug("$TAG $EVENT_SUBSCRIBE", it.toString())
             }
-
-            Handler(Looper.getMainLooper()).postDelayed({
-
-            },5000);
         }
 
     }

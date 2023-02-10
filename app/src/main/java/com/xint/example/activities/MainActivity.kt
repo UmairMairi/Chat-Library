@@ -1,13 +1,19 @@
-package com.xint.example
+package com.xint.example.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.xint.chatlibrary.core.ChatCore
+import com.xint.example.LogUtils
+import com.xint.example.adapters.ConversationAdapter
+import com.xint.example.databinding.ActivityConversationBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    private lateinit var adapter: ConversationAdapter
+    private lateinit var binding: ActivityConversationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityConversationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         ChatCore.instance?.initialization(
@@ -21,5 +27,7 @@ class MainActivity : AppCompatActivity() {
         LogUtils.debug("socketUrl", ChatCore.instance?.socketUrl)
 
         ChatCore.instance?.subscribeUser(userId = "f67628a0-9022-4b58-85fb-0f1f8612429b")
+
+        binding.rvChat.adapter = ConversationAdapter()
     }
 }
