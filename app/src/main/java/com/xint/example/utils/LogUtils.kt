@@ -1,6 +1,7 @@
-package com.xint.example
+package com.xint.example.utils
 
 import android.util.Log
+import com.xint.example.BuildConfig
 
 object LogUtils {
 

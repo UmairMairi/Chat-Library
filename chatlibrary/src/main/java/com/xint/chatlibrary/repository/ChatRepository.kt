@@ -5,8 +5,8 @@ import com.xint.chatlibrary.network.ApiClient
 import com.xint.chatlibrary.network.ApiInterface
 import okhttp3.RequestBody
 
-class ChatRepository {
-    fun getChatConversations(listener: ResponseListener, page: Int, limit: Int) {
+object ChatRepository {
+    fun getChatConversations(listener: ResponseListener, page: Int = 1, limit: Int = 1) {
         val call = ApiClient.getRetrofit()!!.create(ApiInterface::class.java)
             .getConversation(page = page, limit = limit)
         listener.onLoading(isLoading = true)

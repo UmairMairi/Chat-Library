@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">80dp</item>
+        <item name="cornerSizeTopLeft">80dp</item>
+    </style>
+
+    <style name="card_type_style" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Cut
+        </item>
+    </style>
+
+    <style name="radioBtnStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="paymentmoderadioBtnStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+
+    ////////*************12 Text Size**********///////////
+
+    <style name="tv12BlackNormal">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv12GreyNormal">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+
+    </style>
+    <style name="tv12GreenNormal">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv12GreenBold">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv12blackBold">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv12color_whiteNormal">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    ////////*************13 Text Size**********///////////
+
+
+    <style name="tv13BlackNormal">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv13GreyNormal">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv13Bold">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv13RedRegular">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_red_accent</item>
+        <item name="fontFamily">@font/madani_arabic_regular</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+    ////////*************14 Text Size**********///////////
+
+    <style name="tv14BlackNormal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv14GreyNormal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv14GreyBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv14BlackBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv14color_whiteNormal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv14color_whiteBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+    </style>
+
+    <style name="tv14lightcolor_whiteNormal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/lightColorAccent</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    ///////Green14/////////
+
+
+    <style name="tv14NormalGreen">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv14BoldGreen">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    ////////*************16 Text Size**********///////////
+
+    <style name="tv16BlackNormal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv16GreyNormal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv16Grey">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv16GreyBold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv16BlackBold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv16Bold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv16RedRegular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_red_accent</item>
+        <item name="fontFamily">@font/madani_arabic_regular</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    //////color_white///////
+
+    <style name="tv16color_whiteNormal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv16color_whiteBold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv16Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_color_primary_dark</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    ////////Green16/////////
+
+    <style name="tv16GreenNormal">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv16GreenBold">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    ////////*************18 Text Size**********///////////
+
+
+    <style name="tv18BlackNormal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv18GreyNormal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv18BlackBold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv18color_whiteNormal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv18Bold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_color_primary_dark</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv18RedRegular">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/color_red_accent</item>
+        <item name="fontFamily">@font/madani_arabic_regular</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    ////////*************22 Text Size**********///////////
+
+
+    <style name="tv20BlackNormal">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv20GreyNormal">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="tv20BlackBold">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    /////color_white20////
+
+
+    <style name="tv20color_whiteNormal">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv20color_whiteBold">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    ////////*************22 Text Size**********///////////
+
+
+    <style name="tv22BlackNormal">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv22GreyNormal">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="tv22BlackBold">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    /////color_white22////
+
+
+    <style name="tv22color_whiteNormal">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv22color_whiteBold">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    ////////*************24 Text Size**********///////////
+
+    <style name="tv24BlackNormal">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv24GreyNormal">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tv24BlackBold">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+
+    ////////*************28 Text Size**********///////////
+
+    <style name="tv28BlackNormal">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv28GreyNormal">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/color_grey</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="tv28BlackBold">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="tv28color_whiteBold">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    ////////*************30 Text Size**********///////////
+
+
+    <style name="tvNovaBoldBlackPlum30sp">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="tvNovaBoldcolor_white30sp">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="tvNovanormal30sp">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:lineSpacingExtra">-7sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+    /////////******Button 18*****///////////////
+
+
+    <style name="normalBlackLargeButton18" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textColor">@color/color_green_accent</item>
+        <item name="android:enabled">true</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="normalGreenLargeButton18" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/color_green_accent</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:enabled">true</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+    <style name="normalcolor_whiteLargeButton18" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="backgroundTint">@color/black</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:enabled">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+    //////////******Edit Text*******//////////////
+
+    <style name="etNumber20spBoldBorderSelector" parent="Widget.AppCompat.EditText">
+        <item name="android:inputType">number</item>
+        <!--        <item name="android:textColor">@color/otp_color</item>-->
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <!--        <item name="android:background">@drawable/selector_text_field</item>-->
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <!--                                                    TextInputLayout Styles-->
+    <style name="textInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">13dp</item>
+        <item name="boxCornerRadiusBottomStart">13dp</item>
+        <item name="boxCornerRadiusTopEnd">13dp</item>
+        <item name="boxCornerRadiusTopStart">13dp</item>
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintAnimationEnabled">true</item>
+        <!--        <item name="expandedHintEnabled">false</item>-->
+        <!--        <item name="hintTextAppearance">@style/TextAppearance.App.TextInputLayout</item>-->
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="textInputLayoutStyle_hint_enable" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">13dp</item>
+        <item name="boxCornerRadiusBottomStart">13dp</item>
+        <item name="boxCornerRadiusTopEnd">13dp</item>
+        <item name="boxCornerRadiusTopStart">13dp</item>
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintAnimationEnabled">false</item>
+        <!--        <item name="expandedHintEnabled">false</item>-->
+        <!--        <item name="hintTextAppearance">@style/TextAppearance.App.TextInputLayout</item>-->
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="textInputEditTextDone">
+        <item name="android:fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="textInputEditTextNext">
+        <item name="android:fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="text_InputEditTextNext">
+        <item name="android:fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <dimen name="_1dp">1dp</dimen>
+
+
+
+    //////////////********* For Otp********//////////
+    <style name="otp20Normal">
+        <item name="android:textSize">20sp</item>
+        <!--        <item name="android:textColor">@color/otp_color</item>-->
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:inputType">number</item>
+        <!--        <item name="background">@drawable/bg_otp_field</item>-->
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+
+    ////////////////********8Tablayout Text Style*******//////////////
+
+
+    <style name="TabLayoutTextStyle" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/madani_arabic_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="style_text_input_layout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxStrokeColor">@color/color_green_accent</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <!--        <item name="startIconTint">@color/edit_text_icon_tint</item>-->
+        <item name="iconEndPadding">24dp</item>
+        <item name="iconStartPadding">24dp</item>
+        <!--        <item name="boxStrokeErrorColor">@color/teal_200</item>-->
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxCornerRadiusBottomEnd">12sp</item>
+        <item name="boxCornerRadiusBottomStart">12sp</item>
+        <item name="boxCornerRadiusTopStart">12sp</item>
+        <item name="boxCornerRadiusTopEnd">12sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <style name="style_text_input_edittext" parent="text_style_normal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">30sp</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="text_style_normal">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="text_style_bold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    ///tab
+
+
+    <style name="tab_text_apperence" parent="Widget.Design.TabLayout">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/madani_arabic_bold</item>
+        <item name="android:gravity">fill</item>
+        <item name="tabRippleColor">@null</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabTextColor">@color/text_color_secondary</item>
+        <item name="tabIndicatorColor">@color/color_green</item>
+        <item name="tabSelectedTextColor">@color/text_color_primary</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+</resources>

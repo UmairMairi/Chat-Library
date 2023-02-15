@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <font
+        android:font="@font/sf_display_pro_thin_italic"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_thin_italic"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/sf_display_pro_light_italic"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_light_italic"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/sf_display_pro_reguler"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_reguler"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/sf_display_pro_semibold_italic"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_semibold_italic"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/sf_display_pro_medium"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_medium"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+    <font
+        android:font="@font/sf_display_pro_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_bold"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+    <font
+        android:font="@font/sf_display_pro_heavy_italic"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        app:font="@font/sf_display_pro_heavy_italic"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+</font-family>

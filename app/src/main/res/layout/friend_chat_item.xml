@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:paddingHorizontal="20dp"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/layout_gchat_container_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/receiver_item_background"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:maxWidth="260dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:textColor="@color/color_grey"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/tv12GreyNormal"
+        app:layout_constraintTop_toBottomOf="@+id/layout_gchat_container_other"
+        app:layout_constraintStart_toStartOf="@+id/layout_gchat_container_other" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

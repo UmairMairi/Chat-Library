@@ -1,95 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/clRow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:background="@drawable/address_search_list_background"
-    android:layout_marginStart="12dp"
-    android:layout_marginEnd="12dp"
-    >
-
-    <ImageView
-        android:id="@+id/profile_image"
+    android:layout_marginVertical="10dp">
+    <RelativeLayout
         android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:src="@drawable/user_placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="54dp">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/user_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivOnline"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:src="@drawable/iv_online"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-        />
+        <ImageView
+            android:id="@+id/ivOnline"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/iv_online"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
 
-    <TextView
-        android:id="@+id/tvName"
+
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jim Brown"
+            style="@style/tv14BlackBold"/>
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Hello, This is harish"
+            style="@style/tv12BlackNormal"/>
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="14dp"
-        android:text="Jim Brown"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"
-        app:layout_constraintStart_toEndOf="@+id/profile_image" />
-    <TextView
-        android:id="@+id/tvMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Hello, This is harish gandu"
-        android:textSize="12sp"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
-        app:layout_constraintStart_toStartOf="@+id/tvName" />
-
-
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="11:23 PM"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvName"
-      />
-
-
-
-    <TextView
-        android:id="@+id/tv_messages_count"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:gravity="center"
-        android:background="@drawable/iv_red_circle"
-        android:layout_marginEnd="4dp"
-        android:visibility="gone"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_time"
-        app:layout_constraintTop_toBottomOf="@+id/tv_time"
-      />
-  <ImageView
-        android:id="@+id/iv_send"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-      android:scaleType="fitXY"
-        android:gravity="center"
-        android:background="@drawable/icon_tick"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_time"
-        app:layout_constraintTop_toBottomOf="@+id/tv_time"
-      />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:gravity="right"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:23 PM"
+            style="@style/tv12BlackNormal"/>
+        <TextView
+            android:id="@+id/tv_messages_count"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:background="@drawable/iv_red_circle"
+            android:layout_marginEnd="4dp"
+            android:visibility="gone"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+        <ImageView
+            android:id="@+id/iv_send"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginVertical="5dp" />
+    </LinearLayout>
+</LinearLayout>
