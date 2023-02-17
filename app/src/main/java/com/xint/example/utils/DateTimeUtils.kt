@@ -51,4 +51,9 @@ object DateTimeUtils {
         }
         return ""
     }
+
+    fun getDateTimeFromFormat(timestamp: Long): String {
+        return SimpleDateFormat(serverDateTimeFormat, Locale.US).format(Date(timestamp))
+    }
+
 }

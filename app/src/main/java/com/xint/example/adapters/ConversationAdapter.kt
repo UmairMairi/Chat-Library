@@ -1,15 +1,20 @@
 package com.xint.example.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.xint.example.R
+import com.xint.example.activities.ChatActivity
 import com.xint.example.databinding.ItemContactsBinding
 import com.xint.example.model.GetConversationsModel
+import com.xint.example.utils.Constants
 import com.xint.example.utils.DateTimeUtils
 
-class ConversationAdapter(var list :List<GetConversationsModel.Datum>):RecyclerView.Adapter<ConversationAdapter.ViewHolder>() {
+class ConversationAdapter(var context: Context, var list :List<GetConversationsModel.Datum>):RecyclerView.Adapter<ConversationAdapter.ViewHolder>() {
     class ViewHolder(var binding: ItemContactsBinding) : RecyclerView.ViewHolder(binding.root)
 
 
@@ -46,6 +51,9 @@ class ConversationAdapter(var list :List<GetConversationsModel.Datum>):RecyclerV
                 holder.binding.ivSend.visibility = View.VISIBLE
                 holder.binding.ivSend.setImageResource(R.drawable.icon_double_tick)
             }
+        }
+        holder.itemView.setOnClickListener {
+         context.startActivity(Intent(context,ChatActivity::class.java).putExtra(Constants.KeysExtras.conversation,list[position]))
         }
     }
 

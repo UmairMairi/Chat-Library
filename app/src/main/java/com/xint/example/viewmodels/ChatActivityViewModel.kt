@@ -10,26 +10,26 @@ import org.json.JSONObject
 class ChatActivityViewModel: ViewModel() {
     var loading: MutableLiveData<Boolean>? = null
     var errorMsg: MutableLiveData<String>? = null
-    var conversationsModel: MutableLiveData<JSONObject>? = null
+    var userMessages: MutableLiveData<JSONObject>? = null
     init {
         loading = MutableLiveData<Boolean>()
         loading?.value = false
-
         errorMsg = MutableLiveData<String>()
         errorMsg?.value = ""
-
-        conversationsModel = MutableLiveData<JSONObject>()
+        userMessages = MutableLiveData<JSONObject>()
 
     }
 
-    fun getConversation(){
-        ChatRepository.getChatConversations(listener = object: ResponseListener {
+    fun getUserMessages(userId:String){
+        ChatRepository.getUserMessages(
+            userId = userId,
+            listener = object: ResponseListener {
             override fun onLoading(isLoading: Boolean) {
                 loading?.value = isLoading
             }
 
             override fun onSuccess(responseBody: JSONObject) {
-                conversationsModel?.value = responseBody
+                userMessages?.value = responseBody
             }
 
             override fun onErrorBody(responseBody: JSONObject) {

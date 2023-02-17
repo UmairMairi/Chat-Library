@@ -116,13 +116,13 @@ object SocketTasks {
     /**Chat Listeners**/
 
     //Chat sockets
-    fun publishSendMessage(userId:String,data: MessageSendModal) {
+    fun publishSendMessage(data: MessageSendModal) {
 
         val jsonObject = JSONObject()
         val jsonObjectData = JSONObject()
         val jsonObjectMetaData = JSONObject()
 
-        jsonObject.put("userID", userId)
+        jsonObject.put("userID", data.userID)
 
         jsonObjectData.put("receiverId", data.data.receiverId)
         jsonObjectData.put("groupId", data.data.groupId)
@@ -367,13 +367,13 @@ object SocketTasks {
         }
     }
 
-    fun publishTypingEvent(userId:String,data: TypingEventInputModal) {
+    fun publishTypingEvent(data: TypingEventInputModal) {
         val jsonObject = JSONObject()
         val jsonObjectData = JSONObject()
         jsonObjectData.put("receiverId", data.data.receiverId)
         jsonObjectData.put("conversationId", data.data.conversationId)
         jsonObjectData.put("action", data.data.action)
-        jsonObject.put("userID",userId)
+        jsonObject.put("userID",data.userID)
         jsonObject.put("data", jsonObjectData)
         mSocket.emit(TYPING_EVENT, jsonObject)
         LibraryLogs.debug("$TAG $TYPING_EVENT", jsonObject.toString())

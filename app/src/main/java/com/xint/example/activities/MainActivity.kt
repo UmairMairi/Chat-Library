@@ -43,7 +43,7 @@ class MainActivity : BaseActivity() {
                 try{
                     val model = Gson().fromJson(it.toString(),GetConversationsModel::class.java)
                     model?.data?.let {list->
-                        binding.rvChat.adapter = ConversationAdapter(list =  list)
+                        binding.rvChat.adapter = ConversationAdapter(context = this@MainActivity,list =  list)
                     }
                 }catch (e:Exception){
                     vm.errorMsg?.value = e.message

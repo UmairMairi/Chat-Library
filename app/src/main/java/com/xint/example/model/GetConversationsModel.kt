@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class GetConversationsModel (
+data class GetConversationsModel(
     val statusCode: Long? = null,
     val data: List<Datum>? = null
 ):Parcelable{

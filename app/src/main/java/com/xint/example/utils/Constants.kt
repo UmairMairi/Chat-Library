@@ -4,10 +4,13 @@ object Constants {
 
     const val socketUrl = "http://150.230.54.239:8100"
     const val serverUrl = "http://150.230.54.239:3000"
-    const val sessionId = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im1vYmlsZU5vIjoiOTY2NTQ0NTU1NTI3In0sImlhdCI6MTY3NjQ2NzkxMywiZXhwIjoxNjc2NTM5OTEzfQ.eeyHuVrpAbq-mKodPexavsuNmbYM59wdrfVQIEXeiyY"
-    const val userId = "966222789374"
-    const val sessionId2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im1vYmlsZU5vIjoiOTIzMDE0NTY4MjYzIn0sImlhdCI6MTY3NjQ2ODE0NSwiZXhwIjoxNjc2NTQwMTQ1fQ.4HRJWSC5JhNQgZHZ8ZN9cSN_nGJnCrK9RMEFRpgmpfw"
+    const val sessionId = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im1vYmlsZU5vIjoiOTY2NTQ0NTU1NTI4In0sImlhdCI6MTY3NjYzMDM1MiwiZXhwIjoxNjc2NzAyMzUyfQ._Bct6EwxnTI8luXzw8t111YS3dD9B8exHijM0QBk7jM"
+    const val userId = "966222789375"
+    const val sessionId2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im1vYmlsZU5vIjoiOTIzMDE0NTY4MjYzIn0sImlhdCI6MTY3NjY0MTQxNywiZXhwIjoxNjc2NzEzNDE3fQ.poeOQ4E4RQrfcruKIS2LT2MRglgHgZDyozhGBsB8msU"
     const val userId2 = "966110000021"
+
+    const val receiverId = "123"
+    const val senderId = "321"
 
     object ChatViewType {
         const val TEXT_MESSAGE = 0
@@ -35,6 +38,11 @@ object Constants {
         const val VIDEO_PREVIEW_PATH = "video_preview_path"
         const val FILE_TYPE = "file_path"
         const val BODY = "body"
+    }
+
+    object KeysExtras{
+        const val conversation = "conversation"
+
     }
 
 }
