@@ -42,7 +42,6 @@ object Constants {
 
     object KeysExtras{
         const val conversation = "conversation"
-
     }
 
 }

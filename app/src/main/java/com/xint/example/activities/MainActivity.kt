@@ -26,9 +26,9 @@ class MainActivity : BaseActivity() {
             context = this@MainActivity,
             socketUrl = Constants.socketUrl,
             baseUrl = Constants.serverUrl,
-            sessionId =  Constants.sessionId)
+            sessionId =  Constants.sessionId2)
 
-        ChatCore.instance?.subscribeUser(userId = Constants.userId)
+        ChatCore.instance?.subscribeUser(userId = Constants.userId2)
         viewModel.let {vm->
             vm.getConversation()
             vm.loading?.observe(this){ loading->
