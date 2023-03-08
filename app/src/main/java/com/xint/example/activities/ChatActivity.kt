@@ -23,25 +23,26 @@ import com.xint.example.adapters.ChatAdapter
 import com.xint.example.databinding.ActivityChatBinding
 import com.xint.example.extentions.getParcelable
 import com.xint.example.extentions.getSerializable
+import com.xint.example.extentions.pushFragment
 import com.xint.example.fragments.ChatControllerFragment
 import com.xint.example.listeners.ChatControllerListener
 import com.xint.example.model.GetConversationsModel
-import com.xint.example.utils.AppUtils
-import com.xint.example.utils.Constants
-import com.xint.example.utils.DateTimeUtils
-import com.xint.example.utils.LogUtils
+import com.xint.example.model.UserMessagesModel
+import com.xint.example.utils.*
 import com.xint.example.viewmodels.ChatActivityViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
 
-
 class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
+
     private var binding: ActivityChatBinding? = null
     private var viewModel: ChatActivityViewModel? = null
     private var chatAdapter: ChatAdapter? = null
     private var list = ArrayList<ChatMessageModel>()
+
+
     private var senderProfileImage = ""
     private var onlineStatus = false
 
@@ -50,7 +51,8 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
     private lateinit var fileStore: File
 
 
-    private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 data?.let {
@@ -62,7 +64,8 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                 }
             }
         }
-    private var filePreviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private var filePreviewLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 val filePath = data?.getStringExtra(Constants.ChatViewType.IMAGE_PREVIEW_PATH)
@@ -86,40 +89,104 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
         chatAdapter = ChatAdapter(list = list)
         binding!!.recyclerChat.adapter = chatAdapter
 
-        val conversation = intent.getParcelable(Constants.KeysExtras.conversation, GetConversationsModel.Datum::class.java)
+        val conversation = intent.getParcelable(
+            Constants.KeysExtras.conversation,
+            GetConversationsModel.Datum::class.java
+        )
         print(conversation)
-
-
-        binding!!.btnBack.setOnClickListener(this)
-
-
-        supportFragmentManager.beginTransaction()
-            .setCustomAnimations(
-                R.anim.slide_in_left,
-                R.anim.slide_out_right,
-                R.anim.slide_in_right,
-                R.anim.slide_out_left
-            )
-            .replace(
-                binding!!.footerLay.id,
-                ChatControllerFragment(
-                    listener = object : ChatControllerListener {
-                        override fun msgSendListener(modal: MessageReceiveModal, self: Boolean) {
-                            addMessageInList(modal, self)
+        viewModel?.let { vm ->
+            vm.getUserMessages(userId = "${conversation.receiver?.userId ?: 0}")
+            vm.loading?.observe(this) { loading ->
+                showDismissLoader(isLoading = loading)
+            }
+            vm.errorMsg?.observe(this) { msg ->
+                if (msg != null && msg != "") {
+                    LogUtils.error("ViewModel Error--->$msg")
+                }
+            }
+            vm.userMessages?.observe(this@ChatActivity) {
+                try {
+                    val model = Gson().fromJson(it.toString(), UserMessagesModel::class.java)
+                    model?.data?.let { responseList ->
+                        val dataRev = responseList.asReversed()
+                        this.list.clear()
+                        dataRev.forEachIndexed { _, chatMessageApiModal ->
+                            val viewType: Int
+                            when (chatMessageApiModal.messageType) {
+                                1 -> {
+                                    viewType = if (chatMessageApiModal.senderId.toString() == Singleton.instance?.userId) {
+                                            Constants.ChatViewType.TEXT_MESSAGE_SELF
+                                        } else {
+                                            Constants.ChatViewType.TEXT_MESSAGE
+                                        }
+                                    list.add(
+                                        ChatMessageModel(
+                                            user_id = chatMessageApiModal.receiverId.toString(),
+                                            messageId = chatMessageApiModal.messageId!!,
+                                            message_date = DateTimeUtils.getDateTimeFromMillis(inputFormat = DateTimeUtils.timeFormat, milliSeconds= chatMessageApiModal.timestamp!!),
+                                            messageStatus = if (chatMessageApiModal.receiver == null) "0" else chatMessageApiModal.receiver.status.toString(),
+                                            viewType = viewType,
+                                            message_model = MessageModel(messageString = chatMessageApiModal.messageContent),
+                                            senderProfileImage = "",
+                                        )
+                                    )
+                                }
+                                2 -> {
+                                    viewType =
+                                        if (chatMessageApiModal.senderId.toString() == Singleton.instance?.userId
+                                        ) {
+                                            Constants.ChatViewType.PICTURE_MESSAGE_SELF
+                                        } else {
+                                            Constants.ChatViewType.PICTURE_MESSAGE
+                                        }
+                                    list.add(
+                                        ChatMessageModel(
+                                            user_id = chatMessageApiModal.receiverId.toString(),
+                                            messageId = chatMessageApiModal.messageId!!,
+                                            message_date = DateTimeUtils.getDateTimeFromMillis(inputFormat = DateTimeUtils.timeFormat,milliSeconds= chatMessageApiModal.timestamp!!),
+                                            messageStatus = if (chatMessageApiModal.receiver == null) "0" else chatMessageApiModal.receiver.status.toString(),
+                                            viewType = viewType,
+                                            message_model = MessageModel(messageString = chatMessageApiModal.messageContent, imageUri = chatMessageApiModal.metadata?.url),
+                                            senderProfileImage = "",
+                                        )
+                                    )
+                                }
+                            }
+                        }
+                        lifecycleScope.launch(Dispatchers.Main) {
                             notifyAdapterAndScrollToEnd()
                         }
-
-                        override fun galleryPickerListener() {
-                            pickImageFromGallery()
-
-                        }
-
-                        override fun voiceNoteListener() {
-                        }
                     }
-                )
+                } catch (e: Exception) {
+                    vm.errorMsg?.value = e.message
+                }
+            }
+        }
+
+
+
+
+        pushFragment(
+            containerId = binding!!.footerLay.id,
+            fragment = ChatControllerFragment(
+                listener = object : ChatControllerListener {
+                    override fun msgSendListener(modal: MessageReceiveModal, self: Boolean) {
+                        addMessageInList(modal, self)
+                        notifyAdapterAndScrollToEnd()
+                    }
+
+                    override fun galleryPickerListener() {
+                        pickImageFromGallery()
+
+                    }
+
+                    override fun voiceNoteListener() {
+                    }
+                }
             )
-            .commit()
+        )
+
+        binding!!.btnBack.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {

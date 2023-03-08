@@ -17,7 +17,7 @@ data class UserMessagesModel(
         val senderId: Long? = null,
         val receiverId: Long? = null,
         val chatType: Long? = null,
-        val messageType: Long? = null,
+        val messageType: Int? = null,
         val messageContent: String? = null,
         val status: Long? = null,
         val metadata: Metadata? = null,

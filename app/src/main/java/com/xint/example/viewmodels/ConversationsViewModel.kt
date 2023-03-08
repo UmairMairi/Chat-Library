@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.xint.chatlibrary.listeners.ResponseListener
 import com.xint.chatlibrary.repository.ChatRepository
 import com.xint.example.extentions.getErrorMsg
+import com.xint.example.model.GetConversationsModel
+import com.xint.example.utils.LogUtils
 import org.json.JSONObject
 
 class ConversationsViewModel:ViewModel() {
@@ -29,6 +31,7 @@ class ConversationsViewModel:ViewModel() {
             }
 
             override fun onSuccess(responseBody: JSONObject) {
+                LogUtils.debug("Get Conversations-->","$responseBody")
                 conversationsModel?.value = responseBody
             }
 
@@ -42,4 +45,11 @@ class ConversationsViewModel:ViewModel() {
         })
     }
 
+//    fun getFilterList(compareWith:String,list:ArrayList<GetConversationsModel.Datum>):ArrayList<GetConversationsModel.Datum>{
+//        val resultList = ArrayList<GetConversationsModel.Datum>()
+//        for (item in list){
+//        }
+//
+//        return resultList
+//    }
 }

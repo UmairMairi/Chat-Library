@@ -29,6 +29,7 @@ class ConversationAdapter(var context: Context, var list :List<GetConversationsM
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.tvMessage.text = list[position].lastMessage?.messageContent ?: ""
+        holder.binding.tvName.text = list[position].receiver?.englishName ?: ""
         holder.binding.tvTime.text = DateTimeUtils.formatDateFromString(inputDate =  DateTimeUtils.getDateTimeFromMillis(milliSeconds = list[position].lastMessage?.timestamp ?: 0), outputFormat = DateTimeUtils.timeFormat)
         when (list[position].lastMessage?.status.toString()) {
             "0" -> {

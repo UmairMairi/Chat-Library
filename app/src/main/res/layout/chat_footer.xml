@@ -36,6 +36,8 @@
                 android:background="@color/transparent"
                 android:maxLines="4"
                 android:minHeight="40dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
                 android:textColor="@color/text_color_primary"
                 android:textSize="14dp" />
         </RelativeLayout>

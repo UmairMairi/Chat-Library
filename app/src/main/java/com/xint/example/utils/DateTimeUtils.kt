@@ -45,7 +45,7 @@ object DateTimeUtils {
         try {
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = milliSeconds
-            return input.format(calendar.time);
+            return input.format(calendar.time)
         } catch (e: ParseException) {
             LogUtils.error("DataTimeUtils Exception--> ${e.message}")
         }
