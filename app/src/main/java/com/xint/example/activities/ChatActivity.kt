@@ -180,11 +180,12 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
 
         pushFragment(
             containerId = binding!!.footerLay.id,
-            fragment = ChatControllerFragment(
-                listener = object : ChatControllerListener {
+            fragment = ChatControllerFragment(conversation = conversation, listener = object : ChatControllerListener {
                     override fun msgSendListener(modal: MessageReceiveModal, self: Boolean) {
-                        addMessageInList(modal, self)
-                        notifyAdapterAndScrollToEnd()
+                        viewModel?.prepareMessageForList(modal = modal, self = self)?.let {
+                            list.add(it)
+                            notifyAdapterAndScrollToEnd()
+                        }
                     }
 
                     override fun galleryPickerListener() {
@@ -196,8 +197,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
 
                     override fun voiceNoteListener() {
                     }
-                }
-            )
+                })
         )
 
         binding!!.btnBack.setOnClickListener(this)

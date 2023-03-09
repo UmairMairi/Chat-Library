@@ -48,6 +48,7 @@ class ImageVideoPreviewActivity : AppCompatActivity(),View.OnClickListener {
         }
 
         binding.footer.sendMsg.setOnClickListener(this::onClick)
+        binding.btnClose.setOnClickListener(this::onClick)
     }
 
     override fun onClick(view: View) {
@@ -74,6 +75,9 @@ class ImageVideoPreviewActivity : AppCompatActivity(),View.OnClickListener {
                     setResult(RESULT_OK, intent)
                     finish()
                 }
+            }
+            binding.btnClose.id -> {
+                finish()
             }
         }
 

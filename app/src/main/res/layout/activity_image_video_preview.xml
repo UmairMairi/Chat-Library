@@ -15,7 +15,7 @@
             android:id="@+id/img_file"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"/>
+            android:scaleType="fitCenter"/>
         <LinearLayout
             android:id="@+id/controller_lay"
             android:layout_width="match_parent"
@@ -23,6 +23,7 @@
             android:layout_margin="20dp"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/btn_close"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="8dp"

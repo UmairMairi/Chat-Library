@@ -2,9 +2,17 @@ package com.xint.example.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.maps.model.LatLng
+import com.google.gson.Gson
 import com.xint.chatlibrary.listeners.ResponseListener
+import com.xint.chatlibrary.models.ChatMessageModel
+import com.xint.chatlibrary.models.MessageModel
+import com.xint.chatlibrary.models.MessageReceiveModal
 import com.xint.chatlibrary.repository.ChatRepository
+import com.xint.chatlibrary.utils.ChatConstants
 import com.xint.example.extentions.getErrorMsg
+import com.xint.example.utils.DateTimeUtils
+import com.xint.example.utils.LogUtils
 import org.json.JSONObject
 
 class ChatActivityViewModel: ViewModel() {
@@ -40,6 +48,62 @@ class ChatActivityViewModel: ViewModel() {
                 errorMsg?.value = error
             }
         })
+    }
+
+    fun prepareMessageForList(modal: MessageReceiveModal, self: Boolean):ChatMessageModel{
+        when (modal.messageType) {
+            1 -> {
+                val data = Gson().toJson(
+                    ChatMessageModel(
+                        user_id = modal.receiverId,
+                        messageId = modal.messageId,
+                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds = modal.timestamp.toLong()),
+                        messageStatus = modal.receiver.status.toString(),
+                        senderProfileImage = "",
+                        viewType = if (self)
+                            ChatConstants.Chat.ChatViewType.TEXT_MESSAGE_SELF
+                        else
+                            ChatConstants.Chat.ChatViewType.TEXT_MESSAGE,
+                        message_model = MessageModel(
+                            messageString = modal.messageContent,
+                            mediaIdentifier = modal.mediaIdentifier
+                        )
+                    )
+                )
+                LogUtils.debug("Send Message-->", data)
+                    return ChatMessageModel(
+                        user_id = modal.receiverId,
+                        messageId = modal.messageId,
+                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds = modal.timestamp.toLong()),
+                        messageStatus = modal.receiver.status.toString(),
+                        senderProfileImage = "",
+                        viewType = if (self)
+                            ChatConstants.Chat.ChatViewType.TEXT_MESSAGE_SELF
+                        else
+                            ChatConstants.Chat.ChatViewType.TEXT_MESSAGE,
+                        message_model = MessageModel(
+                            messageString = modal.messageContent,
+                            mediaIdentifier = modal.mediaIdentifier
+                        )
+                    )
+            }
+            2 -> {
+                return ChatMessageModel(
+                        user_id = modal.receiverId,
+                        messageId = modal.messageId,
+                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds =modal.timestamp.toLong()),
+                        messageStatus = modal.receiver.status.toString(),
+                        senderProfileImage = "",
+                        viewType = if (self) ChatConstants.Chat.ChatViewType.PICTURE_MESSAGE_SELF else ChatConstants.Chat.ChatViewType.PICTURE_MESSAGE,
+                        message_model = MessageModel(
+                            messageString = modal.messageContent,
+                            imageUri = modal.metadata?.url,
+                            mediaIdentifier = modal.mediaIdentifier
+                        )
+                    )
+            }
+            else->{return ChatMessageModel()}
+        }
     }
 
 }

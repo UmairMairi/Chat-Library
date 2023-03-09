@@ -3,15 +3,15 @@ package com.xint.chatlibrary.models
 import android.os.Parcelable
 import com.google.android.gms.maps.model.LatLng
 import com.xint.chatlibrary.utils.ChatConstants
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ChatMessageModel(
-    var user_id:String,
-    var messageId:String,
-    var message_date: String,
-    var messageStatus: String,
-    var senderProfileImage: String,
+    var user_id:String? = null,
+    var messageId:String? = null,
+    var message_date: String? = null,
+    var messageStatus: String? = null,
+    var senderProfileImage: String? = null,
     var viewType: Int  = ChatConstants.Chat.ChatViewType.TEXT_MESSAGE,
     var message_model:MessageModel? = null
 ): Parcelable

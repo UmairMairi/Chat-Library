@@ -1,7 +1,7 @@
 package com.xint.chatlibrary.models
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MessageReceiveModal(
@@ -18,7 +18,6 @@ data class MessageReceiveModal(
     val status: Int,
     val metadata : MessageSendDataModal.Metadata?
 ) : Parcelable{
-
     @Parcelize
     data class ReceiverStatus(val status: Int) : Parcelable
 }
