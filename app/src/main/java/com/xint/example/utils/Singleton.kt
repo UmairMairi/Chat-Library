@@ -4,6 +4,8 @@ import android.app.Application
 
 class Singleton : Application() {
     var userId: String? = null
+    var mobileNo: String? = null
+    var tId: String? = null
 
     override fun onCreate() {
         super.onCreate()

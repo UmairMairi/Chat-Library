@@ -12,6 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
@@ -57,6 +58,7 @@ object ApiClient {
             retrofit = Retrofit.Builder()
                 .baseUrl(ChatCore.instance!!.baseUrl)
                 .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
         return retrofit

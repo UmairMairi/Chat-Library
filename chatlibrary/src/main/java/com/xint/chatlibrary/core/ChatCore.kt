@@ -10,6 +10,7 @@ class ChatCore {
     lateinit var socketUrl:String
     lateinit var baseUrl:String
     lateinit var token:String
+    lateinit var userId:String
     companion object {
         private var mInstance: ChatCore? = null
 
@@ -22,17 +23,21 @@ class ChatCore {
                 return mInstance
             }
     }
-
-    fun initialization(context: Context, socketUrl:String, baseUrl:String, sessionId:String){
+    fun initialization(context: Context, socketUrl:String, baseUrl:String, sessionId:String, userId:String){
         this.socketUrl = socketUrl
         this.baseUrl = baseUrl
         this.token = sessionId
+        this.userId = userId
+
+
         SocketTasks.initializeSocket(context = context)
     }
 
     fun subscribeUser(userId:String){
         val jsonObject  = JSONObject()
-        jsonObject.put(ChatConstants.SubscribeUser.userId,userId)
-        SocketTasks.subscribeUser(request = jsonObject)
+        if(userId.isNotEmpty()){
+            jsonObject.put(ChatConstants.SubscribeUser.userId,userId)
+            SocketTasks.subscribeUser(request = jsonObject)
+        }
     }
 }

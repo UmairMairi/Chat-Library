@@ -51,8 +51,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
     private lateinit var fileStore: File
 
 
-    private var resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 data?.let {
@@ -64,8 +63,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                 }
             }
         }
-    private var filePreviewLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private var filePreviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 val filePath = data?.getStringExtra(Constants.ChatViewType.IMAGE_PREVIEW_PATH)
