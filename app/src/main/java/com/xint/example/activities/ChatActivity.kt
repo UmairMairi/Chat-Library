@@ -199,7 +199,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     }
                 })
         )
-
+        subscribeForChatHome()
         binding!!.btnBack.setOnClickListener(this)
     }
 
@@ -225,7 +225,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     ChatMessageModel(
                         user_id = modal.receiverId,
                         messageId = modal.messageId,
-                        message_date = DateTimeUtils.getDateTimeFromFormat(modal.timestamp.toLong()),
+                        message_date = DateTimeUtils.getDateTimeFromMillis(DateTimeUtils.timeFormat,modal.timestamp.toLong()),
                         messageStatus = modal.receiver.status.toString(),
                         senderProfileImage = senderProfileImage,
                         viewType = if (self)
@@ -243,7 +243,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     ChatMessageModel(
                         user_id = modal.receiverId,
                         messageId = modal.messageId,
-                        message_date = DateTimeUtils.getDateTimeFromFormat(modal.timestamp.toLong()),
+                        message_date = DateTimeUtils.getDateTimeFromMillis(DateTimeUtils.timeFormat,modal.timestamp.toLong()),
                         messageStatus = modal.receiver.status.toString(),
                         senderProfileImage = senderProfileImage,
                         viewType = if (self)
@@ -398,7 +398,7 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     senderId = modal.receiverId,
                     receiverId = modal.senderId
                 ),
-                userID = Constants.senderId
+                userID = "${Singleton.instance?.userId}"
             )
             SocketTasks.publishMessageRead(messageReadInputModal)
         }

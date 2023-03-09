@@ -15,7 +15,6 @@ import com.xint.example.utils.Constants
 class ChatAdapter(var list: ArrayList<ChatMessageModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var recentUserId: String = "-1"
     private var listener: ChatItemClickListener? = null
 
     override fun getItemCount(): Int {
@@ -48,7 +47,6 @@ class ChatAdapter(var list: ArrayList<ChatMessageModel>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val chatModel = list[position]
-        recentUserId = chatModel.user_id
 
         when (chatModel.viewType) {
             Constants.ChatViewType.TEXT_MESSAGE_SELF -> {

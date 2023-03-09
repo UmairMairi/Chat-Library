@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.xint.chatlibrary.core.ChatCore
+import com.xint.chatlibrary.services.SocketTasks
 import com.xint.example.utils.Constants
 import com.xint.example.viewmodels.ConversationsViewModel
 import com.xint.example.utils.LogUtils
@@ -45,6 +46,8 @@ class MainActivity : BaseActivity() {
                 sessionId = it.data?.token?:"",
                 userId = it.data?.details?.userId?:"",
             )
+            ChatCore.instance?.subscribeUser("${Singleton.instance?.userId}")
+
         }
 
         viewModel.let { vm ->
@@ -77,5 +80,8 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
+
+
     }
+
 }

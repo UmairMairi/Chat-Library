@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ChatMessageModel(
     var user_id:String? = null,
-    var messageId:String? = null,
+    var messageId:String = "",
     var message_date: String? = null,
     var messageStatus: String? = null,
     var senderProfileImage: String? = null,

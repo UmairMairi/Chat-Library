@@ -57,7 +57,7 @@ class ChatActivityViewModel: ViewModel() {
                     ChatMessageModel(
                         user_id = modal.receiverId,
                         messageId = modal.messageId,
-                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds = modal.timestamp.toLong()),
+                        message_date = DateTimeUtils.getDateTimeFromMillis(inputFormat = DateTimeUtils.timeFormat,milliSeconds = modal.timestamp.toLong()),
                         messageStatus = modal.receiver.status.toString(),
                         senderProfileImage = "",
                         viewType = if (self)
@@ -74,7 +74,7 @@ class ChatActivityViewModel: ViewModel() {
                     return ChatMessageModel(
                         user_id = modal.receiverId,
                         messageId = modal.messageId,
-                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds = modal.timestamp.toLong()),
+                        message_date = DateTimeUtils.getDateTimeFromMillis(inputFormat = DateTimeUtils.timeFormat,milliSeconds = modal.timestamp.toLong()),
                         messageStatus = modal.receiver.status.toString(),
                         senderProfileImage = "",
                         viewType = if (self)
@@ -91,7 +91,7 @@ class ChatActivityViewModel: ViewModel() {
                 return ChatMessageModel(
                         user_id = modal.receiverId,
                         messageId = modal.messageId,
-                        message_date = DateTimeUtils.getDateTimeFromMillis(milliSeconds =modal.timestamp.toLong()),
+                        message_date = DateTimeUtils.getDateTimeFromMillis(inputFormat = DateTimeUtils.timeFormat,milliSeconds =modal.timestamp.toLong()),
                         messageStatus = modal.receiver.status.toString(),
                         senderProfileImage = "",
                         viewType = if (self) ChatConstants.Chat.ChatViewType.PICTURE_MESSAGE_SELF else ChatConstants.Chat.ChatViewType.PICTURE_MESSAGE,
