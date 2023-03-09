@@ -10,6 +10,7 @@ import android.view.View
 import android.webkit.MimeTypeMap
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.model.LatLng
@@ -57,8 +58,21 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                 data?.let {
                     it.data?.let { uri ->
                         LogUtils.debug("Picked File Path -->", uri.path)
-
                         val file = AppUtils.getFile(context = this@ChatActivity, uri = uri)
+                        file.let { doc ->
+                            filePreviewLauncher.launch(
+                                Intent(
+                                    this@ChatActivity,
+                                    ImageVideoPreviewActivity::class.java
+                                ).putExtras(
+                                    bundleOf(
+                                        Pair(Constants.ChatViewType.IMAGE_PREVIEW_PATH, doc.path),
+                                        Pair(Constants.ChatViewType.FILE_TYPE, ChatConstants.Chat.ChatFileType.IMAGE)
+                                    )
+                                )
+                            )
+                        }
+
                     }
                 }
             }
@@ -174,8 +188,10 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     }
 
                     override fun galleryPickerListener() {
-                        pickImageFromGallery()
-
+                        val intent = Intent()
+                        intent.type = "image/*"
+                        intent.action = Intent.ACTION_GET_CONTENT
+                        resultLauncher.launch(intent)
                     }
 
                     override fun voiceNoteListener() {
@@ -465,13 +481,6 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
     }
 
     override fun onConversationGet(modal: ChatContact) {
-    }
-
-    private fun pickImageFromGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        resultLauncher.launch(intent)
     }
 
     private fun getMimeType(file: File): String {
