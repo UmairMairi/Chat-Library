@@ -238,6 +238,7 @@ object SocketTasks {
         jsonObject.put("receiverId", data.Data.receiverId)
         jsonObject2.put("userID", data.userID)
         jsonObject2.put("data", jsonObject)
+
         mSocket.emit(MESSAGE_READ, jsonObject2)
         LibraryLogs.debug("$TAG $MESSAGE_READ", jsonObject2.toString())
     }

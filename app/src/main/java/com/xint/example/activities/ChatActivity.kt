@@ -173,6 +173,8 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                     vm.errorMsg?.value = e.message
                 }
             }
+            subscribeForConversation()
+
         }
 
 
@@ -185,6 +187,25 @@ class ChatActivity : BaseActivity(), View.OnClickListener, ChatListener {
                         viewModel?.prepareMessageForList(modal = modal, self = self)?.let {
                             list.add(it)
                             notifyAdapterAndScrollToEnd()
+
+                            val sendMessageModel = MessageSendModal(
+                                userID = Singleton.instance?.userId ?: "",
+                                data = MessageSendDataModal(
+                                    chatType = ChatConstants.Chat.ChatType.SINGLE_CHAT,
+                                    conversationId = conversation._id ?: "",
+                                    groupId = "",
+                                    messageType = when (mimeType) {
+                                        ChatConstants.Chat.ChatMimeType.IMAGE -> ChatConstants.Chat.ChatMessageType.IMAGE
+                                        ChatConstants.Chat.ChatMimeType.AUDIO -> ChatConstants.Chat.ChatMessageType.AUDIO
+                                        else -> ChatConstants.Chat.ChatMessageType.VIDEO
+                                    },
+                                    messageContent = fileTextData /*if (mimeType == Constants.ChatMimeType.IMAGE) "Image" else if (mimeType == Constants.ChatMimeType.AUDIO) "Audio" else "Video"*/,
+                                    mediaIdentifier = mimeType,
+                                    receiverId = "${conversation.receiver?.userId ?: ""}" ,
+                                    metadata = MessageSendDataModal.Metadata(mime = mimeType)
+                                ),
+                            )
+                            SocketTasks.publishSendMessage(sendMessageModel)
                         }
                     }
 
