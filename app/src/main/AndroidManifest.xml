@@ -22,7 +22,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".chat.ChattingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

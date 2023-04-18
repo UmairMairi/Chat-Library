@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -19,7 +21,6 @@ import com.xint.example.databinding.ChatFooterBinding
 import com.xint.example.listeners.ChatControllerListener
 import com.xint.example.model.GetConversationsModel
 import com.xint.example.utils.AppUtils
-import com.xint.example.utils.Constants
 import com.xint.example.utils.Singleton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +29,7 @@ class ChatControllerFragment(
     private var listener: ChatControllerListener,
     private var conversation: GetConversationsModel.Datum
 ) : Fragment(),
-    View.OnClickListener {
+    View.OnClickListener{
 
     private var binding: ChatFooterBinding? = null
 
@@ -129,4 +130,5 @@ class ChatControllerFragment(
             }
         }
     }
+
 }
