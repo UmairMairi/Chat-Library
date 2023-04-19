@@ -17,16 +17,19 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.xint.chat_view.AttachmentOption;
-import com.xint.chat_view.AttachmentOptionsListener;
-import com.xint.chat_view.AudioRecordView;
+import com.xint.chatfooter.AttachmentOption;
+import com.xint.chatfooter.AttachmentOptionsListener;
+import com.xint.chatfooter.ChatFooterView;
 import com.xint.example.R;
 
+import java.util.Objects;
 
-public class ChattingActivity extends AppCompatActivity implements AudioRecordView.RecordingListener, View.OnClickListener,
+
+public class ChattingActivity extends AppCompatActivity implements
+        ChatFooterView.RecordingListener, View.OnClickListener,
         AttachmentOptionsListener {
 
-    private AudioRecordView audioRecordView;
+    private ChatFooterView audioRecordView;
     private RecyclerView recyclerViewMessages;
     private MessageAdapter messageAdapter;
 
@@ -36,34 +39,25 @@ public class ChattingActivity extends AppCompatActivity implements AudioRecordVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
-
-//        getSupportActionBar().hide();
-
-        audioRecordView = new AudioRecordView();
-        // this is to make your layout the root of audio record view, root layout supposed to be empty..
+        audioRecordView = new ChatFooterView();
         audioRecordView.initView((FrameLayout) findViewById(R.id.layoutMain));
-        // this is to provide the container layout to the audio record view..
         View containerView = audioRecordView.setContainerView(R.layout.layout_chatting);
         audioRecordView.setRecordingListener(this);
-
         recyclerViewMessages = containerView.findViewById(R.id.recyclerViewMessages);
-
         messageAdapter = new MessageAdapter();
-
         recyclerViewMessages.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerViewMessages.setHasFixedSize(false);
-
         recyclerViewMessages.setAdapter(messageAdapter);
         recyclerViewMessages.setItemAnimator(new DefaultItemAnimator());
 
         setListener();
-        audioRecordView.getMessageView().requestFocus();
+        Objects.requireNonNull(audioRecordView.getMessageView()).requestFocus();
 
         containerView.findViewById(R.id.imageViewTitleIcon).setOnClickListener(this);
         containerView.findViewById(R.id.imageViewMenu).setOnClickListener(this);
 
 
-        audioRecordView.setAttachmentOptions(AttachmentOption.getDefaultList(), this);
+        audioRecordView.setAttachmentOptions(AttachmentOption.Companion.getDefaultList(), this);
 
         audioRecordView.removeAttachmentOptionAnimation(false);
     }
@@ -153,12 +147,7 @@ public class ChattingActivity extends AppCompatActivity implements AudioRecordVi
                     }
                 });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
         builder.create().show();
     }
 

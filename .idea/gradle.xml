@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/ChatFooter" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chatlibrary" />
-            <option value="$PROJECT_DIR$/mylibrary" />
           </set>
         </option>
       </GradleProjectSettings>
